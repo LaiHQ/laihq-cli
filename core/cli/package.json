@@ -11,7 +11,7 @@
     "test": "__tests__"
   },
   "bin": {
-    "laihq-cli": "bin/index.js"
+    "@laihq-cli": "bin/index.js"
   },
   "files": [
     "lib"
@@ -25,5 +25,5 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "gitHead": "60eee3498cdb168c097e9d71b430e8665f175a90"
+  "gitHead": "45ed53d514722467d9d45a75a4bd30dc9c0f0ed2"
 }

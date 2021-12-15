@@ -18,12 +18,12 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
+  },  
   "dependencies": {
     "import-local": "^3.0.3"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "gitHead": "ebc7d18659cd3deff53339ced0c126b5f658f2cc"
+  "gitHead": "baf8c9354b7cfb5138a5258b2ded61f95e7c11e0"
 }

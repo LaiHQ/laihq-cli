@@ -1,6 +1,6 @@
 {
   "name": "@laihq-cli/cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "laihq-cli cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
@@ -18,7 +18,7 @@
   ],
   "publishConfig": {
     "access": "public"
-  },  
+  },
   "dependencies": {
     "import-local": "^3.0.3"
   },

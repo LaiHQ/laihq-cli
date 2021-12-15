@@ -1,7 +1,7 @@
 {
-  "name": "@laihq-cli/cli",
+  "name": "@plom/cli",
   "version": "1.0.14",
-  "description": "@laihq-cli/cli",
+  "description": "@plom/cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
   "license": "ISC",
@@ -11,7 +11,7 @@
     "test": "__tests__"
   },
   "bin": {
-    "laihq-cli": "bin/index.js"
+    "plom": "bin/index.js"
   },
   "files": [
     "lib"

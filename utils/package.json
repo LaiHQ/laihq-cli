@@ -1,7 +1,7 @@
 {
-  "name": "@laihq-cli/utils",
+  "name": "@plom/utils",
   "version": "1.0.0",
-  "description": "laihq-cli utils",
+  "description": "plom utils",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
   "license": "ISC",
@@ -14,7 +14,6 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npm.taobao.org",
     "access": "public"
   },
   "scripts": {

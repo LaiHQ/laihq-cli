@@ -4,5 +4,5 @@ module.exports = core;
 
 function core() {
     // TODO
-    console.log("hello,laihq-cli")
+    console.log("hello,laihq-cli!")
 }

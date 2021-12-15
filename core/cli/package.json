@@ -17,8 +17,7 @@
     "lib"
   ],
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "dependencies": {
     "import-local": "^3.0.3"
@@ -26,5 +25,5 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "gitHead": "224d484a79e15b46f9ea676a372ebfd8752551e2"
+  "gitHead": "b2a679e8f9f3a00ca18162c8998b7b27fea3bc78"
 }

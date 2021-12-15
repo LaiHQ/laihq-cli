@@ -1,7 +1,7 @@
 {
-  "name": "@laihq-cli/cli",
+  "name": "laihq-cli/cli",
   "version": "1.0.5",
-  "description": "laihq-cli/cli",
+  "description": "laihq-cli cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
   "license": "ISC",
@@ -25,5 +25,5 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "gitHead": "5385f407c8e0262cab1416423182bd78450a27ea"
+  "gitHead": "7d2794ffd4266a5e76584429a4c3e5a6ba518e4b"
 }

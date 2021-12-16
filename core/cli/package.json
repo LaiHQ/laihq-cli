@@ -1,6 +1,6 @@
 {
   "name": "@plom/cli",
-  "version": "1.0.15",
+  "version": "1.0.0",
   "description": "@plom/cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
@@ -20,7 +20,17 @@
     "access": "public"
   },
   "dependencies": {
-    "import-local": "^3.0.3"
+    "@plom/log": "file:../../utils/log",
+    "@plom/get-npm-info": "file:../../utils/get-npm-info",
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "import-local": "^3.0.3",
+    "minimist": "^1.2.5",
+    "npmlog": "^6.0.0",
+    "path-exists": "^4.0.0",
+    "root-check": "^1.0.0",
+    "semver": "^7.3.5",
+    "user-home": "^3.0.0"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"

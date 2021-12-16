@@ -1,6 +1,6 @@
 {
   "name": "@plom/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "@plom/cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
@@ -20,8 +20,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@plom/log": "file:../../utils/log",
     "@plom/get-npm-info": "file:../../utils/get-npm-info",
+    "@plom/log": "file:../../utils/log",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "import-local": "^3.0.3",

@@ -12,7 +12,7 @@ const pathExist = require("path-exists").sync
 
 const pkg = require("../package.json")
 
-const log = require("@plom/log")
+const log = require("@ohuo/log")
 
 const constant = require("./const");
 
@@ -45,7 +45,7 @@ async function checkGlobaUpdate() {
     const currentVersion = pkg.version;
     const npmName = pkg.name;
     // 2.调用npm API 获取所有版本号
-    const { getNpmInfo } = require("@plom/get-npm-info")
+    const { getNpmInfo } = require("@ohuo/get-npm-info")
     const data= await getNpmInfo(npmName)
     console.log(data);
     // 3.提取所有的版本号，比对哪些版本号是大于当前版本号

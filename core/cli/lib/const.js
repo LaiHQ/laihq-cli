@@ -8,7 +8,7 @@
 
 const LOWEST_NODE_VERSION = "14.0.0";
 
-const DEfAULT_CLI_HOME = ".plom-cli"
+const DEfAULT_CLI_HOME = ".ohuo-cli"
 
 
 module.exports = {

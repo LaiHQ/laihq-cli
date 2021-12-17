@@ -1,7 +1,7 @@
 {
-  "name": "@plom/cli",
+  "name": "@ohuo/cli",
   "version": "1.0.0",
-  "description": "@plom/cli",
+  "description": "@ohuo/cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
   "license": "ISC",
@@ -11,7 +11,7 @@
     "test": "__tests__"
   },
   "bin": {
-    "plom": "bin/index.js"
+    "ohuo": "bin/index.js"
   },
   "files": [
     "lib"
@@ -20,8 +20,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@plom/get-npm-info": "file:../../utils/get-npm-info",
-    "@plom/log": "file:../../utils/log",
+    "@ohuo/get-npm-info": "file:../../utils/get-npm-info",
+    "@ohuo/log": "file:../../utils/log",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "import-local": "^3.0.3",

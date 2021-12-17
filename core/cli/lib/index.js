@@ -49,7 +49,7 @@ async function checkGlobaUpdate() {
     const versions = await getNpmSemverVersion(currentVersion,npmName)
     console.log(versions);
     // 3.提取所有的版本号，比对哪些版本号是大于当前版本号
-
+    
 
     // 4.获取最新版本号，提示用户更新到该版本
 }

@@ -42,14 +42,16 @@ async function getNpmVersions(npmName,registry) {
 function getSemverVersions(baseVersion,versions) {
     versions = versions.filter(version => {
         semver.satisfies(version,`^${baseVersion}`)
-    })
+    }).sort((a,b) => semver.gt(b,a))
     return versions
 }
 
 async function getNpmSemverVersion(baseVersion,npmName,registry) {
     const versions = await getNpmVersions(npmName, registry)
     const newVersions = getSemverVersions(baseVersion, versions)
-    console.log(newVersions);
+    if (newVersions && newVersions.length>0) {
+        return newVersions[0]
+    }
 }
 
 module.exports = {

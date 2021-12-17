@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@ohuo/get-npm-info": "^1.0.3",
-    "@ohuo/log": "file:../../utils/log",
+    "@ohuo/log": "^1.0.4",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "import-local": "^3.0.3",
@@ -35,5 +35,5 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "gitHead": "ba33b73f47c0b341489126cab731983d05eaed8b"
+  "gitHead": "0e315bc2f4d7ba9f043a33d1cb0d02098e5b832c"
 }

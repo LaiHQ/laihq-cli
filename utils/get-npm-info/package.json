@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "description": "@ohuo get-npm-info",
   "author": "lai_hq@126.com <lai_hq@126.com>",
-  "homepage": "https://github.com/LaiHQ/laihq-cli#readme",
+  "homepage": "https://github.com/LaiHQ/ohuo#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
@@ -15,18 +15,18 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LaiHQ/laihq-cli.git"
+    "url": "git+https://github.com/LaiHQ/ohuo.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/LaiHQ/laihq-cli/issues"
+    "url": "https://github.com/LaiHQ/ohuo/issues"
   },
   "dependencies": {
     "axios": "^0.24.0",
     "semver": "^7.3.5",
     "url-join": "^4.0.1"
   },
-  "gitHead": "ba33b73f47c0b341489126cab731983d05eaed8b"
+  "gitHead": "0e315bc2f4d7ba9f043a33d1cb0d02098e5b832c"
 }

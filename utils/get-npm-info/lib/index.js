@@ -38,8 +38,22 @@ async function getNpmVersions(npmName,registry) {
     }
 }
 
+// 获取 大于 某个版本的数组集合
+function getSemverVersions(baseVersion,versions) {
+    versions = versions.filter(version => {
+        semver.satisfies(version,`^${baseVersion}`)
+    })
+    return versions
+}
+
+async function getNpmSemverVersion(baseVersion,npmName,registry) {
+    const versions = await getNpmVersions(npmName, registry)
+    const newVersions = getSemverVersions(baseVersion, versions)
+    console.log(newVersions);
+}
 
 module.exports = {
     getNpmInfo,
-    getNpmVersions
+    getNpmVersions,
+    getNpmSemverVersion
 };

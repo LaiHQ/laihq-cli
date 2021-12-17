@@ -46,10 +46,14 @@ async function checkGlobaUpdate() {
     const npmName = pkg.name;
     // 2.调用npm API 获取所有版本号
     const { getNpmSemverVersion } = require("@ohuo/get-npm-info")
-    const versions = await getNpmSemverVersion(currentVersion,npmName)
+    const lastVersions = await getNpmSemverVersion(currentVersion,npmName)
     console.log(versions);
     // 3.提取所有的版本号，比对哪些版本号是大于当前版本号
-    
+    if (lastVersions && semver.gt(lastVersions,currentVersion)) {
+        log.warn("更新提示：",colors.yellow(`请手动更新 ${npmName},当前版本:${currentVersion},最新版本${lastVersions}
+        更新命令: npm install -g ${npmName}
+        `))
+    }
 
     // 4.获取最新版本号，提示用户更新到该版本
 }

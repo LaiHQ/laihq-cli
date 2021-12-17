@@ -1,6 +1,6 @@
 {
   "name": "@ohuo/cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "@ohuo/cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
@@ -20,8 +20,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@ohuo/get-npm-info": "^1.0.3",
-    "@ohuo/log": "^1.0.4",
+    "@ohuo/get-npm-info": "^1.0.5",
+    "@ohuo/log": "^1.0.5",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "import-local": "^3.0.3",

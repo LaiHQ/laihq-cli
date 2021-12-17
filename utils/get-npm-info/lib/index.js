@@ -5,7 +5,7 @@ const axios = require("axios")
 const urlJoin = require("url-join")
 const semver = require("semver")
 
-
+// 获取npm包信息
 function getNpmInfo(npmName,registry) {
     if (!npmName) {
         return null
@@ -28,6 +28,7 @@ function getDefaultRegistry(isOriginal =false) {
     return isOriginal? "https://registry.npmjs.org":"https://registry.npm.taobao.org"
 }
 
+// 获取npm包所有版本
 async function getNpmVersions(npmName,registry) {
     const data = await getNpmInfo(npmName, registry)
     if (data) {

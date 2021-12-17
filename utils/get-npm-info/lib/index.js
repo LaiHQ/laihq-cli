@@ -1,4 +1,5 @@
 
+
 'use strict';
 const axios = require("axios")
 const urlJoin = require("url-join")
@@ -27,7 +28,17 @@ function getDefaultRegistry(isOriginal =false) {
     return isOriginal? "https://registry.npmjs.org":"https://registry.npm.taobao.org"
 }
 
+async function getNpmVersions(npmName,registry) {
+    const data = await getNpmInfo(npmName, registry)
+    if (data) {
+        return Object.keys(data.versions)
+    } else {
+        return []
+    }
+}
+
 
 module.exports = {
-    getNpmInfo
+    getNpmInfo,
+    getNpmVersions
 };

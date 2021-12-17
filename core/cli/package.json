@@ -1,6 +1,6 @@
 {
   "name": "@ohuo/cli",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "@ohuo/cli",
   "author": "lhq <lai_hq@126.com>",
   "homepage": "",
@@ -35,5 +35,5 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "gitHead": "b2a679e8f9f3a00ca18162c8998b7b27fea3bc78"
+  "gitHead": "8e857be60c9ee6c1a113044496af6c31917b20d8"
 }

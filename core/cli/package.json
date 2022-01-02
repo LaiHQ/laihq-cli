@@ -20,9 +20,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@ohuo/get-npm-info": "^1.0.5",
-    "@ohuo/log": "^1.0.5",
+    "@ohuo/get-npm-info": "file:../../utils/get-npm-info",
+    "@ohuo/log": "file:../../utils/log",
+    "@ohuo/init": "file:../../commands/init",
     "colors": "^1.4.0",
+    "commander": "^8.3.0",
     "dotenv": "^10.0.0",
     "import-local": "^3.0.3",
     "minimist": "^1.2.5",

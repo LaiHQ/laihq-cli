@@ -9,14 +9,19 @@ const colors = require("colors")
 const userHome = require("user-home")
 const pathExist = require("path-exists").sync
 
+const commander = require("commander")
 
 const pkg = require("../package.json")
 
 const log = require("@ohuo/log")
 
+const init = require("@ohuo/init")
+
 const constant = require("./const");
 
-let args,config;
+let args, config;
+
+const program = new commander.Command()
 
 async function core() {
     try {
@@ -29,14 +34,55 @@ async function core() {
         // 检查用户主目录 =>
         checkUserHome()
         //检查命令 入参 =>如是否开启调试模式
-        checkInputArgs()
-        log.verbose("debug", "test debug log...")
+        // checkInputArgs()
+        // log.verbose("debug", "test debug log...")
         // 检查环境变量 => 可以在操作系统中配置环境变量，如将用户的敏感信息保存在本地，或者做配置信息等
         checkEnv()
         // 检查是否需要全局更新
-        await checkGlobaUpdate()
+        // await checkGlobaUpdate()
+        // 注册命令
+        registerCommand()
     } catch (e) {
        log.error(e.message)
+    }
+}
+
+function registerCommand() {
+    program
+        .name(Object.keys(pkg.bin)[0])
+        .usage("<command> [options]")
+        .version(pkg.version)
+        .option("-d,--debug", "是否开启调试模式", false);
+
+    program.command("init [projectName]")
+        .option("-f,--force", "是否强制初始化项目")
+        .action(init)
+
+    // 监听debug命令,开启调试模式
+    program.on("option:debug", () => {
+        if (program.opts().debug) {
+            process.env.LOG_LEVEL = "verbose"
+        } else {
+            process.env.LOG_LEVEL = "info"
+        }
+        log.level = process.env.LOG_LEVEL
+        log.verbose("debug", "test debug log...")
+    })
+    // 对未知命令 监听
+    program.on('command:*', (obj) => {
+        console.log(colors.red("未知命令:", obj[0]))
+        // 获取当前脚手架的所有可用命令
+        const availableCommands = program.commands.map(cmd => cmd.name());
+        if (availableCommands.length) {
+            console.log(colors.red("可用命令",availableCommands.join(",")))
+        }
+    })
+
+    program.parse(process.argv);
+    // 如果没有输入命令
+    if (program.args && program.args.length<1) {
+        program.outputHelp()
+        console.log()
     }
 }
 

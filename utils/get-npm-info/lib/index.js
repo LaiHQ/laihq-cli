@@ -1,3 +1,9 @@
+/*
+ * @Date: 2021-12-17 22:14:19
+ * @LastEditors: lai_hq@qq.com
+ * @LastEditTime: 2022-01-11 22:43:24
+ * @FilePath: \laihq-web-servef:\code\ohuo\utils\get-npm-info\lib\index.js
+ */
 
 
 'use strict';
@@ -54,8 +60,20 @@ async function getNpmSemverVersion(baseVersion,npmName,registry) {
     }
 }
 
+// 获取最新版本
+async function getNpmLastesVersion(npmName,registry){
+    let versions = await getNpmVersions(npmName, registry)
+    if (versions) {
+        versions = versions.sort((a, b) => semver.gt(b, a))
+        return versions[0]
+    }
+    return null
+}
+
 module.exports = {
     getNpmInfo,
     getNpmVersions,
-    getNpmSemverVersion
+    getNpmSemverVersion,
+    getDefaultRegistry,
+    getNpmLastesVersion
 };

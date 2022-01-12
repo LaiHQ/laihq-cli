@@ -17,33 +17,22 @@ const log = require("@ohuo/log")
 
 const init = require("@ohuo/init")
 
-const constant = require("./const");
+const exec = require("@ohuo/exec")
 
-let args, config;
+const constant = require("./const");
 
 const program = new commander.Command()
 
 async function core() {
     try {
-        // 1.检查版本号 => 是否升级等
-        checkPkgVersion()
-        // 获取node版本号 => 是否小于项目最低版本要求
-        checkNodeVersion()
-        //  检查root启动 => 系统登录的用户权限root用户创建文件的话很多功能没法操作
-        checkRoot()
-        // 检查用户主目录 =>
-        checkUserHome()
-        //检查命令 入参 =>如是否开启调试模式
-        // checkInputArgs()
-        // log.verbose("debug", "test debug log...")
-        // 检查环境变量 => 可以在操作系统中配置环境变量，如将用户的敏感信息保存在本地，或者做配置信息等
-        checkEnv()
-        // 检查是否需要全局更新
-        // await checkGlobaUpdate()
+        await prepare()
         // 注册命令
         registerCommand()
     } catch (e) {
-       log.error(e.message)
+        log.error(e.message);
+        if (process.env.LOG_LEVEL = "verbose") {
+            console.log(e);
+        }
     }
 }
 
@@ -52,11 +41,12 @@ function registerCommand() {
         .name(Object.keys(pkg.bin)[0])
         .usage("<command> [options]")
         .version(pkg.version)
-        .option("-d,--debug", "是否开启调试模式", false);
+        .option("-d,--debug", "是否开启调试模式", false)
+        .option("-tp,--targetPath <taragetPath>", "是否指定本地调试文件路径", "");
 
     program.command("init [projectName]")
         .option("-f,--force", "是否强制初始化项目")
-        .action(init)
+        .action(exec)
 
     // 监听debug命令,开启调试模式
     program.on("option:debug", () => {
@@ -66,8 +56,14 @@ function registerCommand() {
             process.env.LOG_LEVEL = "info"
         }
         log.level = process.env.LOG_LEVEL
-        log.verbose("debug", "test debug log...")
+        log.verbose("debug", "开启测试调试日志...")
     })
+    // 指定targetPath
+    program.on("option:targetPath", () => {
+        process.env.CLI_TARGET_PATH = program.opts().targetPath;
+    })
+
+
     // 对未知命令 监听
     program.on('command:*', (obj) => {
         console.log(colors.red("未知命令:", obj[0]))
@@ -86,6 +82,21 @@ function registerCommand() {
     }
 }
 
+async function prepare() {
+    // 1.检查版本号 => 是否升级等
+    checkPkgVersion()
+    // 获取node版本号 => 是否小于项目最低版本要求
+    checkNodeVersion()
+    //  检查root启动 => 系统登录的用户权限root用户创建文件的话很多功能没法操作
+    checkRoot()
+    // 检查用户主目录 =>
+    checkUserHome()    
+    // 检查环境变量 => 可以在操作系统中配置环境变量，如将用户的敏感信息保存在本地，或者做配置信息等
+    checkEnv()
+    // 检查是否需要全局更新
+    // await checkGlobaUpdate()
+}
+
 async function checkGlobaUpdate() {
     // 1.获取版本号和模块名
     const currentVersion = pkg.version;
@@ -101,9 +112,6 @@ async function checkGlobaUpdate() {
         `))
     }
 }
-
-
-
 
 function checkEnv() {
     // dotenv 用于加载环境变量，可以在用户的主目录下创建。env文件然后获取
@@ -130,23 +138,6 @@ function createDefaultConfig() {
         cliConfig["cliHome"] = path.join(userHome,constant.DEfAULT_CLI_HOME)
     }
     process.env.CLI_HOME_PATH = cliConfig.cliHome
-}
-
-function checkInputArgs() {
-    // 解析命令参数
-    const minimist = require("minimist");
-    args = minimist(process.argv.splice(2))
-    // 是否调试模式
-    checkArgs()
-}
-
-function checkArgs() {
-    if (args.debug) {
-        process.env.LOG_LEVEL = "verbose"
-    } else {
-        process.env.LOG_LEVEL = "info"
-    }
-    log.level  = process.env.LOG_LEVEL
 }
 
 function checkUserHome() {
